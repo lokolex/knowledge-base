@@ -1,8 +1,12 @@
+import ThemeSwitcher from '@/fsd/features/ThemeSwitcher/ui/ThemeSwitcher';
 import Image from 'next/image';
 
 export default function Home() {
   return (
-    <main className="">
+    <main>
+      <div className="m-4 flex justify-end">
+        <ThemeSwitcher />
+      </div>
       <div>
         Шрифты делятся на семейства, но основополагающим отличием принято считать наличие или
         отсутствие засечек – штрихов на концах букв. Это отражено в названии шрифтов: «serif»

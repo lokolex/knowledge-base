@@ -2,6 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  [data-theme='light'] {
+    --bg-color: #f4f4f0;
+    --text-color: #212121;
+    --bg-hover: #302f2f;
+  }
+
+  [data-theme='dark'] {
+    --bg-color: #212121;
+    --text-color: #f4f4f0;
+    --bg-hover: #d7d7d2;
+  }
+
+  [data-theme='yellow'] {
+    --bg-color: #ffc300;
+    --text-color: #f4f4f0;
+    --bg-hover: #d7d7d2;
+  }
+
+  [data-theme='purple'] {
+    --bg-color: #39009e;
+    --text-color: #15b2fb;
+    --bg-hover: #5abdea;
+  }
+
+  body {
+    @apply relative text-TextColor bg-BackgroundColor;
+  }
+}
+
 html {
   font-family: var(--font-roboto);
 }
