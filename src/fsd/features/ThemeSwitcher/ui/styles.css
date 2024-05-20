@@ -1,0 +1,73 @@
+/* @import '@radix-ui/colors/black-alpha.css';
+@import '@radix-ui/colors/mauve.css';
+@import '@radix-ui/colors/violet.css'; */
+
+/* reset */
+button {
+  all: unset;
+}
+
+.SelectTrigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  padding: 0 15px;
+  font-size: 14px;
+  line-height: 1;
+  height: 35px;
+  gap: 5px;
+  background-color: var(--text-color);
+  /* width: 40px; */
+  color: var(--bg-color);
+  transition: background-color 0.4s;
+  cursor: pointer;
+}
+
+.SelectTrigger:hover {
+  background-color: var(--bg-hover);
+}
+
+.SelectContent {
+  overflow: hidden;
+  /* background-color: white; */
+  background-color: var(--bg-hover);
+  color: var(--bg-color);
+  border-radius: 6px;
+}
+
+.SelectViewport {
+  padding: 5px;
+}
+
+.SelectItem {
+  font-size: 13px;
+  line-height: 1;
+  color: var(--violet-11);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  height: 25px;
+  padding: 0 35px 0 25px;
+  position: relative;
+  user-select: none;
+  cursor: pointer;
+}
+.SelectItem[data-disabled] {
+  color: var(--mauve-8);
+  pointer-events: none;
+}
+.SelectItem[data-highlighted] {
+  outline: none;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.SelectItemIndicator {
+  position: absolute;
+  left: 0;
+  width: 25px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
