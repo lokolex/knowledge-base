@@ -1,9 +1,11 @@
 'use client';
 
-import React, { useEffect, useLayoutEffect, useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 import * as Select from '@radix-ui/react-select';
-import clsx from 'clsx';
+import { ChevronDown } from 'lucide-react';
+import SelectItem from './SelectItem';
+
 import './styles.css';
 
 const ThemeSwitcher = () => {
@@ -19,27 +21,17 @@ const ThemeSwitcher = () => {
     <Select.Root defaultValue={theme} onValueChange={(val) => setTheme(val)}>
       <Select.Trigger className="SelectTrigger">
         <Select.Value />
+        <Select.Icon>
+          <ChevronDown size={16} />
+        </Select.Icon>
       </Select.Trigger>
       <Select.Portal>
         <Select.Content className="SelectContent">
           <Select.Viewport className="SelectViewport">
             <Select.Group>
-              <Select.Item className="SelectItem" value="light">
-                <Select.ItemText>Light</Select.ItemText>
-                <Select.ItemIndicator className="SelectItemIndicator">v</Select.ItemIndicator>
-              </Select.Item>
-              <Select.Item className="SelectItem" value="dark">
-                <Select.ItemText>Dark</Select.ItemText>
-                <Select.ItemIndicator className="SelectItemIndicator">v</Select.ItemIndicator>
-              </Select.Item>
-              <Select.Item className="SelectItem" value="purple">
-                <Select.ItemText>Purple</Select.ItemText>
-                <Select.ItemIndicator className="SelectItemIndicator">v</Select.ItemIndicator>
-              </Select.Item>
-              <Select.Item className="SelectItem" value="yellow">
-                <Select.ItemText>Yellow</Select.ItemText>
-                <Select.ItemIndicator className="SelectItemIndicator">v</Select.ItemIndicator>
-              </Select.Item>
+              <SelectItem value="light">Light</SelectItem>
+              <SelectItem value="dark">Dark</SelectItem>
+              <SelectItem value="purple">Purple</SelectItem>
             </Select.Group>
           </Select.Viewport>
         </Select.Content>
