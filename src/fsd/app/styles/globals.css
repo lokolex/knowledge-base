@@ -7,24 +7,21 @@
     --bg-color: #f4f4f0;
     --text-color: #212121;
     --bg-hover: #302f2f;
+    --text-logo: #212121;
   }
 
   [data-theme='dark'] {
     --bg-color: #212121;
     --text-color: #f4f4f0;
     --bg-hover: #d7d7d2;
-  }
-
-  [data-theme='yellow'] {
-    --bg-color: #ffc300;
-    --text-color: #f4f4f0;
-    --bg-hover: #d7d7d2;
+    --text-logo: #f4f4f0;
   }
 
   [data-theme='purple'] {
     --bg-color: #39009e;
     --text-color: #15b2fb;
     --bg-hover: #5abdea;
+    --text-logo: #f4f4f0;
   }
 
   body {
