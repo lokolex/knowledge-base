@@ -3,6 +3,7 @@ import { roboto } from '@/fsd/app/fonts/fonts';
 import { oswald } from '@/fsd/app/fonts/fonts';
 import { ThemeProvider } from 'next-themes';
 import Header from '@/fsd/widgets/Header/Header';
+import BreadCrumbs from '@/fsd/shared/BreadCrumbs/BreadCrumbs';
 
 import '@/fsd/app/styles/globals.css';
 
@@ -28,7 +29,10 @@ export default function RootLayout({
       <body>
         <ThemeProvider enableSystem={false} disableTransitionOnChange defaultTheme="dark">
           <Header />
-          {children}
+          <div className="container mx-auto px-3 pb-7">
+            <BreadCrumbs />
+            {children}
+          </div>
         </ThemeProvider>
       </body>
     </html>
