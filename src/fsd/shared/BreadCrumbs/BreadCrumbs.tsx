@@ -8,7 +8,6 @@ import { ChevronRight } from 'lucide-react';
 const BreadCrumbs = () => {
   const path = usePathname();
   const breadCrumbs = generateBreadCrumbs(path);
-  console.log(breadCrumbs);
 
   return (
     <div className="flex gap-1">
