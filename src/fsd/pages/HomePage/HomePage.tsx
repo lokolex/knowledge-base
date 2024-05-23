@@ -1,17 +1,16 @@
 import Link from 'next/link';
-import React from 'react';
+import { sectionsData } from '@/fsd/app/data/sectionsData';
 
 const HomePage = () => {
   return (
-    <main className="container mx-auto px-3">
-      <div>
-        Шрифты делятся на семейства, но основополагающим отличием принято считать наличие или
-        отсутствие засечек – штрихов на концах букв. Это отражено в названии шрифтов: «serif»
-        означает засечку, если рядом есть частица «sans» (от фр. sans – «без»), то шрифт будет без
-        засечек. Они могут быть различной формы и размера:
+    <main>
+      <div className="flex gap-2">
+        {sectionsData.map((section) => (
+          <Link key={section.title} href={section.link}>
+            {section.title}
+          </Link>
+        ))}
       </div>
-      <h1 className="text-3xl text-center">Заголовок JavaScript</h1>
-      <Link href="/javaScript">JavaScript</Link>
     </main>
   );
 };
