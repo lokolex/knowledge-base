@@ -1,6 +1,0 @@
-#!/usr/bin/env sh
-
-# Переход в корневую папку проекта
-cd "$(git rev-parse --show-toplevel)"
-
-npm run build
