@@ -3,7 +3,7 @@ import { roboto } from '@/fsd/app/fonts/fonts';
 import { oswald } from '@/fsd/app/fonts/fonts';
 import { ThemeProvider } from 'next-themes';
 import Header from '@/fsd/widgets/Header/Header';
-import BreadCrumbs from '@/fsd/shared/BreadCrumbs/BreadCrumbs';
+import BreadCrumbs from '@/fsd/shared/ui/BreadCrumbs/BreadCrumbs';
 
 import '@/fsd/app/styles/globals.css';
 

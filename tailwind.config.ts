@@ -13,6 +13,9 @@ const config: Config = {
         BackgroundColor: 'var(--bg-color)',
         TextColor: 'var(--text-color)',
       },
+      boxShadow: {
+        card: '1px 1px 10px 1px rgba(34, 60, 80, 0.2)',
+      },
     },
   },
   plugins: [],
