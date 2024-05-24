@@ -6,7 +6,7 @@ import Image from 'next/image';
 const HomePage = () => {
   return (
     <main>
-      <div className="flex gap-8 mt-9">
+      <div className="flex gap-10 mt-9">
         {sectionsData.map((section) => (
           <Link key={section.title} href={section.link}>
             <Card className="py-4 px-3 rounded transition-all hover:scale-105 hover:shadow-pink-200">
