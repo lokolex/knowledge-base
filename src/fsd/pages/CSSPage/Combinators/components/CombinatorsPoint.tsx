@@ -1,6 +1,5 @@
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { ocean } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { combinatorsData } from '../data';
+import CodeComponent from '@/fsd/shared/ui/CodeComponent/CodeComponent';
 
 type Keys = keyof (typeof combinatorsData)[0];
 
@@ -12,15 +11,11 @@ const CombinatorsPoint = (props: ICombinatorspointProps) => {
     <div className="mt-7">
       <h2 className="text-2xl text-center mb-2">{title}</h2>
       <p>{text1}</p>
-      <div className="max-w-[600px] mt-3">
-        <SyntaxHighlighter language="htmlbars" style={ocean}>
-          {htmlCode}
-        </SyntaxHighlighter>
+      <div className="mt-3">
+        <CodeComponent language="htmlbars" code={htmlCode} />
       </div>
-      <div className="max-w-[600px] mt-3">
-        <SyntaxHighlighter language="css" style={ocean}>
-          {cssCode}
-        </SyntaxHighlighter>
+      <div className="mt-3">
+        <CodeComponent language="css" code={cssCode} />
       </div>
       <p className="mt-2">{text2}</p>
     </div>

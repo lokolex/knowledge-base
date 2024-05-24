@@ -1,19 +1,53 @@
-'use client';
-
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import {
-  solarizedDark,
-  shadesOfPurple,
-  solarizedLight,
-  rainbow,
-  vs2015,
-} from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import { useTheme } from 'next-themes';
+import CodeComponent from '@/fsd/shared/ui/CodeComponent/CodeComponent';
 
 const GenerateMetadataPage = () => {
-  const { theme } = useTheme();
-  const style =
-    theme === 'light' ? solarizedLight : theme === 'purple' ? shadesOfPurple : solarizedDark;
+  const textCode1 = `
+  export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    // read route params then fetch data
+  
+    // return an object
+    return {
+      title: blogPost.title,
+      description: blogPost.description,
+    };
+  }
+  `;
+
+  const textCode2 = `https://api.slingacademy.com/v1/sample-data/blog-posts/[id]`;
+
+  const textCode3 = `
+  // app/blog-posts/[id]/page.tsx
+
+  import { Metadata, ResolvingMetadata } from 'next';
+
+  type Props = {
+    params: { id: string };
+  };
+
+  // set dynamic metadata
+  export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    // read route params
+    const id = params.id;
+    const url = 'https://api.slingacademy.com/v1/sample-data/blog-posts/' + id;
+
+    // fetch data
+    const data = await fetch(url).then((res) => res.json());
+    const blogPost = data.blog;
+    console.log(blogPost);
+
+    return {
+      title: blogPost.title,
+      description: blogPost.description,
+    };
+  }
+
+  // page content
+  export default function Page({ params }: Props) {
+    return (
+      <></>
+    );
+  }
+  `;
 
   return (
     <div className="mt-9">
@@ -24,28 +58,14 @@ const GenerateMetadataPage = () => {
         <span className="text-pink-400">generatedMetadata()</span> :
       </p>
       <div className="max-w-[767px] mb-6 mt-2">
-        <SyntaxHighlighter language="typescript" style={style}>
-          {`
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  // read route params then fetch data
-
-  // return an object
-  return {
-    title: blogPost.title,
-    description: blogPost.description,
-  };
-}
-          `}
-        </SyntaxHighlighter>
+        <CodeComponent code={textCode1} language="typescript" />
       </div>
       <p>
         В приведенном ниже законченном и рабочем примере мы получим фиктивную публикацию в блоге по
         ее идентификатору из этого общедоступного API:
       </p>
       <div className="max-w-[767px] mb-6 mt-2">
-        <SyntaxHighlighter language="php" style={style}>
-          {`https://api.slingacademy.com/v1/sample-data/blog-posts/[id]`}
-        </SyntaxHighlighter>
+        <CodeComponent code={textCode2} language="php" />
       </div>
       <p>
         Давайте посмотрим, как мы реализуем{' '}
@@ -54,39 +74,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         новую папку с именем [id]. Создайте файл с именем page.tsx внутри [id] папки.
       </p>
       <div className="max-w-[767px] mb-6 mt-2">
-        <SyntaxHighlighter language="typescript" style={style}>
-          {`// app/blog-posts/[id]/page.tsx
-
-import { Metadata, ResolvingMetadata } from 'next';
-
-type Props = {
-  params: { id: string };
-};
-
-// set dynamic metadata
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  // read route params
-  const id = params.id;
-  const url = 'https://api.slingacademy.com/v1/sample-data/blog-posts/' + id;
-
-  // fetch data
-  const data = await fetch(url).then((res) => res.json());
-  const blogPost = data.blog;
-  console.log(blogPost);
-
-  return {
-    title: blogPost.title,
-    description: blogPost.description,
-  };
-}
-
-// page content
-export default function Page({ params }: Props) {
-  return (
-    <></>
-  );
-}`}
-        </SyntaxHighlighter>
+        <CodeComponent code={textCode3} language="typescript" />
       </div>
       <p>
         Обратите внимание, что вы не можете экспортировать metadata объект и{' '}
