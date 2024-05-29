@@ -25,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru" className={`${roboto.variable} ${oswald.variable}`}>
+    <html lang="ru" suppressHydrationWarning className={`${roboto.variable} ${oswald.variable}`}>
       <body>
         <ThemeProvider enableSystem={false} disableTransitionOnChange defaultTheme="dark">
           <Header />
